@@ -34,7 +34,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GHCR_IO_REGISTRY_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set target and tag
         id: build-opts
@@ -58,9 +58,9 @@ jobs:
           push: true
           target: ${{ steps.build-opts.outputs.target }}
           tags: |
-            hadolint/hadolint:${{ steps.build-opts.outputs.latest }}
-            hadolint/hadolint:${{ steps.build-opts.outputs.tag }}
-            hadolint/hadolint:v${{ steps.build-opts.outputs.tag }}
-            ghcr.io/hadolint/hadolint:${{ steps.build-opts.outputs.latest }}
-            ghcr.io/hadolint/hadolint:${{ steps.build-opts.outputs.tag }}
-            ghcr.io/hadolint/hadolint:v${{ steps.build-opts.outputs.tag }}
+            bdwyertech/hadolint:${{ steps.build-opts.outputs.latest }}
+            bdwyertech/hadolint:${{ steps.build-opts.outputs.tag }}
+            bdwyertech/hadolint:v${{ steps.build-opts.outputs.tag }}
+            ghcr.io/bdwyertech/hadolint:${{ steps.build-opts.outputs.latest }}
+            ghcr.io/bdwyertech/hadolint:${{ steps.build-opts.outputs.tag }}
+            ghcr.io/bdwyertech/hadolint:v${{ steps.build-opts.outputs.tag }}
